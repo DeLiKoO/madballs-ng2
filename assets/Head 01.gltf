@@ -1,0 +1,170 @@
+{
+  "asset": {
+    "generator": "UnityGLTF",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Head 01"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 332,
+      "type": "VEC3",
+      "max": [
+        0.2579227089881897,
+        1.7202619314193726,
+        0.27199307084083557
+      ],
+      "min": [
+        -0.2579227089881897,
+        1.1958637237548828,
+        -0.20682324469089508
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 332,
+      "type": "VEC3",
+      "max": [
+        0.99980241060256958,
+        0.99988186359405518,
+        0.999679684638977
+      ],
+      "min": [
+        -0.99980241060256958,
+        -0.99932348728179932,
+        -0.99711334705352783
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 332,
+      "type": "VEC4",
+      "max": [
+        0.999992847442627,
+        0.81845557689666748,
+        0.99995982646942139,
+        1.0
+      ],
+      "min": [
+        -0.999992847442627,
+        -0.375575989484787,
+        -0.99996089935302734,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 332,
+      "type": "VEC2",
+      "max": [
+        0.056452974677085876,
+        0.83677047491073608
+      ],
+      "min": [
+        0.015572166070342064,
+        0.20652616024017334
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 1206,
+      "type": "SCALAR",
+      "max": [
+        331.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Head 01.bin",
+      "byteLength": 18348
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 3984,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 3984,
+      "byteLength": 3984,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 7968,
+      "byteLength": 5312,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 13280,
+      "byteLength": 2656,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 15936,
+      "byteLength": 2412,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.5
+      },
+      "name": "Default-Material"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Head 01"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.7071068,
+        0.0,
+        0.0,
+        0.7071068
+      ],
+      "name": "Head 01"
+    }
+  ]
+}
