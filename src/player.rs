@@ -3,7 +3,6 @@ use crate::components::KeyboardControlled;
 use crate::components::Health;
 
 #[derive(Bundle)]
-// #[require(Mesh, StandardMaterial)]
 struct PlayerBundle {
     kc: KeyboardControlled,
     // name: String,

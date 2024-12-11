@@ -10,16 +10,16 @@ pub(crate) fn move_kc_entity(
     for (_, mut transform) in &mut query {
         let mut translation: Vec3 = Vec3::ZERO;
         if keys.pressed(KeyCode::KeyW) {
-            translation = (0.0, 0.0, 1.0).into();
+            translation = translation.mul_add(Vec3::ONE, Vec3::new(0.0, 0.0, -1.0));
         }
         if keys.pressed(KeyCode::KeyA) {
-            translation = (-1.0, 0.0, 0.0).into();
+            translation = translation.mul_add(Vec3::ONE, Vec3::new(-1.0, 0.0, 0.0));
         }
         if keys.pressed(KeyCode::KeyS) {
-            translation = (0.0, 0.0, -1.0).into();
+            translation = translation.mul_add(Vec3::ONE, Vec3::new(0.0, 0.0, 1.0));
         }
         if keys.pressed(KeyCode::KeyD) {
-            translation = (1.0, 0.0, 0.0).into();
+            translation = translation.mul_add(Vec3::ONE, Vec3::new(1.0, 0.0, 0.0));
         }
         transform.translation += translation * timer.delta_secs();
         ()
