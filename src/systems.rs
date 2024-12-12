@@ -1,6 +1,7 @@
 pub mod health;
 pub mod damage;
 pub mod keyboard_control;
+pub mod draw_cursor;
 
 use bevy::prelude::*;
 

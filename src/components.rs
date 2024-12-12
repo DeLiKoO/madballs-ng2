@@ -15,6 +15,9 @@ pub(crate) struct KeyboardControlled {
 }
 
 
+#[derive(Component)]
+pub(crate) struct Ground;
+
 
 // NOTICE: use bevy's Transform
 // #[derive(Component)]
