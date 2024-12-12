@@ -5,6 +5,7 @@ use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use components::Ground;
 use bevy::pbr::{CascadeShadowConfigBuilder, MeshMaterial3d};
 use std::f32::consts::PI;
+use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
 
 fn main() {
     App::new()
@@ -13,6 +14,17 @@ fn main() {
             brightness: 2000.,
         })
         .add_plugins(DefaultPlugins)
+        .add_plugins(FpsOverlayPlugin {
+            config: FpsOverlayConfig {
+                text_config: TextFont {
+                    font_size: 14.0,
+                    ..default()
+                },
+                text_color: bevy::color::Color::Srgba(bevy::color::palettes::basic::LIME),
+                enabled: true,
+                ..default()
+            },
+        })
         .add_plugins(
             WorldInspectorPlugin::new()
         )
