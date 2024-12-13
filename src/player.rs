@@ -2,16 +2,16 @@ use bevy::prelude::*;
 use crate::components::KeyboardControlled;
 use crate::components::Health;
 
-const PLAYER_HEIGHT: f32 = 2.0;
+pub(crate) const PLAYER_HEIGHT: f32 = 2.0;
 
 #[derive(Bundle)]
-struct PlayerBundle {
+pub(crate) struct PlayerBundle {
     kc: KeyboardControlled,
     // name: String,
     health: Health,
     mesh: Mesh3d,
     material: MeshMaterial3d<StandardMaterial>,
-    transform: Transform,
+    pub(crate) transform: Transform,
 }
 
 #[derive(Bundle)]

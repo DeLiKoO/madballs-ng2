@@ -34,6 +34,7 @@ fn main() {
         .add_systems(Startup, setup_lights)
         .add_systems(Update, crate::systems::draw_cursor::draw_cursor)
         .add_systems(Update, crate::systems::keyboard_control::move_kc_entity)
+        .add_systems(Update, crate::systems::look_at_cursor::look_at_cursor)
         .run();
 }
 
