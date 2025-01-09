@@ -3,6 +3,7 @@ pub mod damage;
 pub mod keyboard_control;
 pub mod draw_cursor;
 pub mod look_at_cursor;
+pub mod shoot_on_click;
 
 use bevy::prelude::*;
 

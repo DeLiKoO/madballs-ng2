@@ -1,6 +1,7 @@
 //! Plays animations from a skinned glTF.
 
 use bevy::prelude::*;
+use avian3d::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use components::Ground;
 use bevy::pbr::{CascadeShadowConfigBuilder, MeshMaterial3d};
@@ -28,6 +29,7 @@ fn main() {
         .add_plugins(
             WorldInspectorPlugin::new()
         )
+        .add_plugins(PhysicsPlugins::default().set(PhysicsInterpolationPlugin::interpolate_all()))
         .add_systems(Startup, crate::player::spawn_player_character)
         .add_systems(Startup, spawn_grid_plane)
         .add_systems(Startup, spawn_camera)
@@ -35,6 +37,7 @@ fn main() {
         .add_systems(Update, crate::systems::draw_cursor::draw_cursor)
         .add_systems(Update, crate::systems::keyboard_control::move_kc_entity)
         .add_systems(Update, crate::systems::look_at_cursor::look_at_cursor)
+        .add_systems(Update, crate::systems::shoot_on_click::shoot_on_click)
         .run();
 }
 

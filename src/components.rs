@@ -1,4 +1,4 @@
-use bevy::prelude::Component;
+use bevy::prelude::*;
 
 #[derive(Component)]
 pub(crate) struct Health {
@@ -8,6 +8,21 @@ pub(crate) struct Health {
 #[derive(Component)]
 pub(crate) struct Damage {
     pub(crate) points: f32,
+}
+
+#[derive(Component)]
+pub(crate) struct Player {
+}
+
+
+#[derive(Component)]
+pub(crate) struct Bullet {
+    // direction: Dir3,
+    // speed_meter_per_second: f32,
+}
+
+#[derive(Component)]
+pub(crate) struct Weapon {
 }
 
 #[derive(Component)]

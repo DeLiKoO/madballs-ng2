@@ -1,11 +1,14 @@
 use bevy::prelude::*;
 use crate::components::KeyboardControlled;
 use crate::components::Health;
+use crate::components::Player;
+use crate::components::Weapon;
 
 pub(crate) const PLAYER_HEIGHT: f32 = 2.0;
 
 #[derive(Bundle)]
 pub(crate) struct PlayerBundle {
+    player: Player,
     kc: KeyboardControlled,
     // name: String,
     health: Health,
@@ -16,6 +19,7 @@ pub(crate) struct PlayerBundle {
 
 #[derive(Bundle)]
 struct WeaponBundle {
+    weapon: Weapon,
     mesh: Mesh3d,
     material: MeshMaterial3d<StandardMaterial>,
     transform: Transform,
@@ -28,6 +32,7 @@ pub(crate) fn spawn_player_character(
 ) {
     let player_entity_id = commands.spawn(
         PlayerBundle {
+            player: Player {},
             kc: KeyboardControlled {},
             health: Health { points: 100.0 },
             mesh: Mesh3d(meshes.add(Sphere::new(PLAYER_HEIGHT / 2.0).mesh())),
@@ -54,6 +59,7 @@ pub(crate) fn spawn_player_character(
                     ..StandardMaterial::default()
                 })),
                 transform: Transform::from_xyz(0.0, PLAYER_HEIGHT / 2.0, 0.0).with_scale(Vec3 { x: 0.5, y: 0.5, z: 3.0 }),
+                weapon: Weapon {  },
             }
         )
         .id();
