@@ -23,6 +23,7 @@ pub(crate) struct Bullet {
 
 #[derive(Component)]
 pub(crate) struct Weapon {
+    pub(crate) muzzle_pos: Vec3,
 }
 
 #[derive(Component)]

@@ -59,7 +59,7 @@ pub(crate) fn spawn_player_character(
                     ..StandardMaterial::default()
                 })),
                 transform: Transform::from_xyz(0.0, PLAYER_HEIGHT / 2.0, 0.0).with_scale(Vec3 { x: 0.5, y: 0.5, z: 3.0 }),
-                weapon: Weapon {  },
+                weapon: Weapon {  muzzle_pos: Vec3 { x: 0.0, y: 0.0, z: -0.75 } },
             }
         )
         .id();
