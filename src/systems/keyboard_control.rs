@@ -2,6 +2,8 @@ use bevy::prelude::*;
 
 use crate::components::KeyboardControlled;
 
+const MOVEMENT_SPEED: f32 = 10.0;
+
 pub(crate) fn move_kc_entity(
     mut query: Query<(&KeyboardControlled, &mut Transform)>,
     keys: Res<ButtonInput<KeyCode>>,
@@ -21,7 +23,7 @@ pub(crate) fn move_kc_entity(
         if keys.pressed(KeyCode::KeyD) {
             translation = translation.mul_add(Vec3::ONE, Vec3::new(1.0, 0.0, 0.0));
         }
-        transform.translation += translation * timer.delta_secs();
+        transform.translation += translation * MOVEMENT_SPEED * timer.delta_secs();
         ()
     }
 }
