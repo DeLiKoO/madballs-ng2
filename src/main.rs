@@ -97,3 +97,4 @@ fn spawn_camera(
 mod player;
 mod components;
 mod systems;
+mod world;
