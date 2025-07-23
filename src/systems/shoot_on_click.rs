@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use avian3d::prelude::*;
-use crate::{components::{Player, Bullet, Damage, KeyboardControlled, Weapon}, player::PLAYER_HEIGHT};
+use crate::components::{Player, Bullet, Damage, KeyboardControlled, Weapon};
 
 pub(crate) fn shoot_on_click(
     mut commands: Commands,
@@ -15,7 +15,7 @@ pub(crate) fn shoot_on_click(
             for (_, weapon, weapon_parent, weapon_global_transform) in weapon_query.iter() {
                 if player_entity.eq(&weapon_parent.get()) {
                     commands.spawn((
-                        Bullet { }, // TODO: Set direction from player transform
+                        Bullet { },
                         Damage { points: 10.0 }, // TODO: impl Clone for Damage
                         Mesh3d(meshes.add(Cylinder::default().mesh())),
                         MeshMaterial3d(materials.add(StandardMaterial {
