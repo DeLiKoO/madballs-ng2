@@ -1,3 +1,4 @@
+use bevy::math::bounding::Aabb3d;
 use bevy::pbr::{CascadeShadowConfigBuilder, MeshMaterial3d};
 use bevy::prelude::*;
 use crate::components::Ground;
@@ -37,8 +38,9 @@ pub(crate) fn spawn_grid_plane(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
+    let mesh = meshes.add(Plane3d::default().mesh().size(50.0, 50.0).subdivisions(10));
     commands.spawn((
-        Mesh3d(meshes.add(Plane3d::default().mesh().size(50.0, 50.0).subdivisions(10))),
+        Mesh3d(mesh),
         MeshMaterial3d(materials.add(Color::from(Color::WHITE))),
         Ground,
     ));

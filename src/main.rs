@@ -3,9 +3,6 @@
 use bevy::prelude::*;
 use avian3d::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
-use components::Ground;
-use bevy::pbr::{CascadeShadowConfigBuilder, MeshMaterial3d};
-use std::f32::consts::PI;
 use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
 
 fn main() {
@@ -38,6 +35,7 @@ fn main() {
         .add_systems(Update, crate::systems::keyboard_control::move_kc_entity)
         .add_systems(Update, crate::systems::look_at_cursor::look_at_cursor)
         .add_systems(Update, crate::systems::shoot_on_click::shoot_on_click)
+        .add_systems(PostUpdate, crate::systems::despawn_out_of_world_bullets::despawn_out_of_world_bullets)
         .run();
 }
 
