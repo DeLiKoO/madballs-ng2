@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy_health_bar3d::prelude::{BarSettings, BarOrientation};
 use crate::components::KeyboardControlled;
 use crate::components::Health;
 use crate::components::Player;
@@ -31,10 +32,10 @@ pub(crate) fn spawn_player_character(
     mut materials: ResMut<Assets<StandardMaterial>>
 ) {
     let player_entity_id = commands.spawn(
-        PlayerBundle {
+        (PlayerBundle {
             player: Player {},
             kc: KeyboardControlled {},
-            health: Health { points: 100.0 },
+            health: Health { points: 100.0, max: 100.0 },
             mesh: Mesh3d(meshes.add(Sphere::new(PLAYER_HEIGHT / 2.0).mesh())),
             material: MeshMaterial3d(materials.add(StandardMaterial {
                 base_color: Srgba::hex("#2b49ab").unwrap().into(),
@@ -43,7 +44,13 @@ pub(crate) fn spawn_player_character(
                 ..StandardMaterial::default()
             })),
             transform: Transform::from_xyz(0.0, PLAYER_HEIGHT / 2.0, 0.0),
-        }
+        },
+        BarSettings::<Health> {
+            width: 3.0,
+            offset: 2.0,
+            orientation: BarOrientation::Horizontal, // default is horizontal
+            ..default()
+        }),
     ).id();
     // Another way is to use the add_child function to add children after the parent
     // entity has already been spawned.

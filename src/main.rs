@@ -5,6 +5,8 @@ use avian3d::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
 
+use crate::health_plugin::CustomHealthBarPlugin;
+
 fn main() {
     App::new()
         .insert_resource(AmbientLight {
@@ -27,6 +29,7 @@ fn main() {
             WorldInspectorPlugin::new()
         )
         .add_plugins(PhysicsPlugins::default().set(PhysicsInterpolationPlugin::interpolate_all()))
+        .add_plugins(CustomHealthBarPlugin)
         .add_systems(Startup, crate::player::spawn_player_character)
         .add_systems(Startup, crate::world::spawn_grid_plane)
         .add_systems(Startup, crate::world::spawn_camera)
@@ -43,3 +46,4 @@ mod player;
 mod components;
 mod systems;
 mod world;
+mod health_plugin;

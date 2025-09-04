@@ -1,4 +1,3 @@
-pub mod health;
 pub mod damage;
 pub mod despawn_out_of_world_bullets;
 pub mod keyboard_control;

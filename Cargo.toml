@@ -4,15 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bevy = { version = "0.15.0", features = ["dynamic_linking", "bevy_dev_tools"] }
+bevy = { version = "0.15.3", features = ["dynamic_linking", "bevy_dev_tools"] }
 bevy-inspector-egui = "0.28.0"
 bevy_replicon = "0.29.0"
 bevy_quinnet = "0.13.0"
 bevy_replicon_quinnet = "0.7.0"
 avian3d = "0.2"
+bevy_health_bar3d = "3.4.0"
 
 # for production builds
-# bevy = "0.15.0"
+# bevy = "0.15.3"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]

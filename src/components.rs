@@ -1,8 +1,9 @@
 use bevy::prelude::*;
 
-#[derive(Component)]
+#[derive(Reflect, Component)]
 pub(crate) struct Health {
     pub(crate) points: f32,
+    pub(crate) max: f32,
 }
 
 #[derive(Component)]
