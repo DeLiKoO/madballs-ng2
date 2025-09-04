@@ -30,6 +30,7 @@ fn main() {
         )
         .add_plugins(PhysicsPlugins::default().set(PhysicsInterpolationPlugin::interpolate_all()))
         .add_plugins(CustomHealthBarPlugin)
+        .add_systems(Startup, crate::weapon::init_weapon_assets.before(crate::player::spawn_player_character))
         .add_systems(Startup, crate::player::spawn_player_character)
         .add_systems(Startup, crate::world::spawn_grid_plane)
         .add_systems(Startup, crate::world::spawn_camera)
@@ -43,6 +44,7 @@ fn main() {
 }
 
 mod player;
+mod weapon;
 mod components;
 mod systems;
 mod world;
