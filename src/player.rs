@@ -21,7 +21,7 @@ pub(crate) fn spawn_player_character(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
-    wms: Res<crate::weapon::WeaponModels>,
+    wms: Res<crate::weapon::WeaponAssets>,
 ) {
     let player_entity_id = commands.spawn(
         (PlayerBundle {
@@ -46,7 +46,8 @@ pub(crate) fn spawn_player_character(
     ).id();
 
     let weapon_entity_id = commands.spawn(
-        crate::weapon::default_weapon(wms)
+        // crate::weapon::gun(wms)
+        crate::weapon::rocket_launcher(wms)
     ).id();
 
     // Add child to the parent.
