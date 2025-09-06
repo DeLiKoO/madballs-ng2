@@ -3,6 +3,8 @@ use bevy_health_bar3d::prelude::{BarSettings, BarOrientation};
 use crate::components::KeyboardControlled;
 use crate::components::Health;
 use crate::components::Player;
+use crate::weapon::components::WeaponType;
+use crate::weapon::components::WithWeapon;
 
 pub(crate) const PLAYER_HEIGHT: f32 = 2.0;
 
@@ -21,7 +23,7 @@ pub(crate) fn spawn_player_character(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
-    wms: Res<crate::weapon::resources::WeaponAssets>,
+    weapon_assets: Res<crate::weapon::resources::WeaponAssets>,
 ) {
     let player_entity_id = commands.spawn(
         (PlayerBundle {
@@ -42,15 +44,18 @@ pub(crate) fn spawn_player_character(
             offset: 2.0,
             orientation: BarOrientation::Horizontal, // default is horizontal
             ..default()
+        },
+        WithWeapon {
+            weapon_type: WeaponType::Gun,
         }),
     ).id();
 
-    let weapon_entity_id = commands.spawn(
-        // crate::weapon::gun(wms)
-        crate::weapon::systems::rocket_launcher(wms)
-    ).id();
+    // let weapon_entity_id = commands.spawn(
+    //     // crate::weapon::gun(wms)
+    //     crate::weapon::systems::rocket_launcher(&weapon_assets)
+    // ).id();
 
-    // Add child to the parent.
-    commands.entity(player_entity_id).add_child(weapon_entity_id);
+    // // Add child to the parent.
+    // commands.entity(player_entity_id).add_child(weapon_entity_id);
 
 }

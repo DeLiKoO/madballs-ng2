@@ -5,7 +5,7 @@ use avian3d::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
 
-use crate::{health_plugin::CustomHealthBarPlugin, weapon::WeaponPlugin};
+use crate::{health::CustomHealthBarPlugin, weapon::WeaponPlugin};
 
 fn main() {
     App::new()
@@ -47,4 +47,4 @@ mod weapon;
 mod components;
 mod systems;
 mod world;
-mod health_plugin;
+mod health;

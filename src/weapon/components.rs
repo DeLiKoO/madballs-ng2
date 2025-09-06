@@ -11,6 +11,17 @@ pub(crate) struct Weapon {
     pub(crate) muzzle_pos: Vec3,
 }
 
+#[derive(Clone)]
+pub(crate) enum WeaponType {
+    RocketLauncher,
+    Gun,
+}
+
+#[derive(Component)]
+pub(crate) struct WithWeapon {
+    pub(crate) weapon_type: WeaponType,
+}
+
 #[derive(Bundle)]
 pub(crate) struct WeaponBundle {
     pub(crate) weapon: Weapon,

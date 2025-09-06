@@ -1,6 +1,8 @@
 use avian3d::prelude::*;
 use bevy::prelude::*;
-use crate::{components::Damage, player::PLAYER_HEIGHT, systems::shoot_on_click::ShootEvent, weapon::{components::{Bullet, Weapon, WeaponBundle}, resources::{WeaponAssets, WeaponMaterials, WeaponMeshes}}};
+use crate::{components::Damage, player::PLAYER_HEIGHT, systems::shoot_on_click::ShootEvent};
+use super::components::{Bullet, Weapon, WeaponBundle};
+use super::resources::{WeaponAssets, WeaponMaterials, WeaponMeshes};
 
 pub(crate) fn init_weapon_assets(
     mut commands: Commands,
@@ -30,7 +32,7 @@ pub(crate) fn init_weapon_assets(
 }
 
 pub(crate) fn rocket_launcher(
-    assets: Res<WeaponAssets>,
+    assets: &Res<WeaponAssets>,
 ) -> WeaponBundle {
     WeaponBundle {
                 // damage: 1.0,
@@ -42,7 +44,7 @@ pub(crate) fn rocket_launcher(
 }
 
 pub(crate) fn gun(
-    assets: Res<WeaponAssets>,
+    assets: &Res<WeaponAssets>,
 ) -> WeaponBundle {
     WeaponBundle {
                 // damage: 1.0,
