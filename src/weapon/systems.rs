@@ -1,30 +1,6 @@
 use avian3d::prelude::*;
 use bevy::prelude::*;
-use crate::{components::{Bullet, Damage, Weapon}, player::PLAYER_HEIGHT, systems::shoot_on_click::ShootEvent};
-
-#[derive(Bundle)]
-pub(crate) struct WeaponBundle {
-    weapon: Weapon,
-    mesh: Mesh3d,
-    material: MeshMaterial3d<StandardMaterial>,
-    transform: Transform,
-}
-
-struct WeaponMeshes {
-    cuboid: Handle<Mesh>, // NOTICE: Shouldn't we simply store AssetIds ?
-    cylinder: Handle<Mesh>,
-}
-
-struct WeaponMaterials {
-    default: Handle<StandardMaterial>,
-    silver_bullet: Handle<StandardMaterial>,
-}
-
-#[derive(Resource)]
-pub(crate) struct WeaponAssets {
-    meshes: WeaponMeshes,
-    materials: WeaponMaterials,
-}
+use crate::{components::Damage, player::PLAYER_HEIGHT, systems::shoot_on_click::ShootEvent, weapon::{components::{Bullet, Weapon, WeaponBundle}, resources::{WeaponAssets, WeaponMaterials, WeaponMeshes}}};
 
 pub(crate) fn init_weapon_assets(
     mut commands: Commands,

@@ -5,7 +5,7 @@ use avian3d::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
 
-use crate::health_plugin::CustomHealthBarPlugin;
+use crate::{health_plugin::CustomHealthBarPlugin, weapon::WeaponPlugin};
 
 fn main() {
     App::new()
@@ -29,9 +29,9 @@ fn main() {
             WorldInspectorPlugin::new()
         )
         .add_plugins(PhysicsPlugins::default().set(PhysicsInterpolationPlugin::interpolate_all()))
+        .add_plugins(WeaponPlugin)
         .add_plugins(CustomHealthBarPlugin)
         .add_event::<crate::systems::shoot_on_click::ShootEvent>()
-        .add_systems(Startup, crate::weapon::init_weapon_assets.before(crate::player::spawn_player_character))
         .add_systems(Startup, crate::player::spawn_player_character)
         .add_systems(Startup, crate::world::spawn_grid_plane)
         .add_systems(Startup, crate::world::spawn_camera)
@@ -39,9 +39,6 @@ fn main() {
         .add_systems(Update, crate::systems::draw_cursor::draw_cursor)
         .add_systems(Update, crate::systems::keyboard_control::move_kc_entity)
         .add_systems(Update, crate::systems::look_at_cursor::look_at_cursor)
-        .add_systems(Update, crate::systems::shoot_on_click::shoot_on_click)
-        .add_systems(Update, crate::weapon::weapon_shoot.after(crate::systems::shoot_on_click::shoot_on_click))
-        .add_systems(PostUpdate, crate::systems::despawn_out_of_world_bullets::despawn_out_of_world_bullets)
         .run();
 }
 

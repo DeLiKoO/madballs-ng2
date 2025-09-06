@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use crate::components::{Player, KeyboardControlled, Weapon};
+use crate::{components::{KeyboardControlled, Player}, weapon::components::Weapon};
 
 #[derive(Event)]
 pub(crate) struct ShootEvent {

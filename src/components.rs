@@ -15,18 +15,6 @@ pub(crate) struct Damage {
 pub(crate) struct Player {
 }
 
-
-#[derive(Component)]
-pub(crate) struct Bullet {
-    // direction: Dir3,
-    // speed_meter_per_second: f32,
-}
-
-#[derive(Component)]
-pub(crate) struct Weapon {
-    pub(crate) muzzle_pos: Vec3,
-}
-
 #[derive(Component)]
 pub(crate) struct KeyboardControlled {
 }

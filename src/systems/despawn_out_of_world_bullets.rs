@@ -1,5 +1,5 @@
 use bevy::{math::{bounding::{Aabb3d, BoundingVolume}}, prelude::*, render::primitives::Aabb};
-use crate::components::{Bullet, Ground};
+use crate::{components::Ground, weapon::components::Bullet};
 
 // Useful for bullets; could be made more generic with an associated AutoDespawn component ? 
 pub(crate) fn despawn_out_of_world_bullets(
