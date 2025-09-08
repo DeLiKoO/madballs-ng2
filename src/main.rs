@@ -32,6 +32,7 @@ fn main() {
         .add_plugins(WeaponPlugin)
         .add_plugins(CustomHealthBarPlugin)
         .add_systems(Startup, crate::player::spawn_player_character)
+        .add_systems(Startup, crate::player::spawn_dummy_character)
         .add_systems(Startup, crate::world::spawn_grid_plane)
         .add_systems(Startup, crate::world::spawn_camera)
         .add_systems(Startup, crate::world::spawn_lights)
