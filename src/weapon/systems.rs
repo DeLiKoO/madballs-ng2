@@ -1,6 +1,6 @@
 use avian3d::prelude::*;
 use bevy::prelude::*;
-use crate::{components::Damage, player::PLAYER_HEIGHT, systems::player_input::ShootEvent};
+use crate::{components::Damage, player::PLAYER_HEIGHT};
 use super::components::{Bullet, Weapon, WeaponBundle};
 use super::resources::{WeaponAssets, WeaponMaterials, WeaponMeshes};
 
@@ -59,7 +59,7 @@ pub(crate) fn gun(
 pub(crate) fn weapon_shoot(
     assets: Res<WeaponAssets>,
     mut commands: Commands,
-    mut eventreader_shoot: EventReader<ShootEvent>,
+    mut eventreader_shoot: EventReader<super::ShootEvent>,
 ) {
     for ev in eventreader_shoot.read() {
         commands.spawn((

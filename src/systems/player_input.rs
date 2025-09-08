@@ -1,25 +1,5 @@
 use bevy::{input::mouse::MouseWheel, prelude::*};
-use crate::{components::{KeyboardControlled, Player}, weapon::components::Weapon};
-
-#[derive(Event)]
-pub(crate) struct ShootEvent {
-    pub(crate) player_entity: Entity,
-    pub(crate) weapon_entity: Entity,
-    pub(crate) from: Vec3,
-    pub(crate) rotation: Quat,
-}
-
-enum ChangeWeaponDirection {
-    Next,
-    Previous,
-}
-
-#[derive(Event)]
-pub(crate) struct ChangeWeaponEvent {
-    pub(crate) player_entity: Entity,
-    pub(crate) current_weapon_entity: Entity,
-    pub(crate) direction: ChangeWeaponDirection,
-}
+use crate::{components::{KeyboardControlled, Player}, weapon::{components::Weapon, ChangeWeaponDirection, ChangeWeaponEvent, ShootEvent}};
 
 pub(crate) fn shoot_on_click(
     mut evw_shoot: EventWriter<ShootEvent>,

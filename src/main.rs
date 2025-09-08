@@ -28,10 +28,6 @@ fn main() {
         .add_plugins(
             WorldInspectorPlugin::new()
         )
-        .add_event::<crate::systems::player_input::ShootEvent>()
-        .add_event::<crate::systems::player_input::ChangeWeaponEvent>()
-        .add_systems(Update, crate::systems::player_input::shoot_on_click)
-        .add_systems(Update, crate::systems::player_input::change_weapon_on_mousewheel)
         .add_plugins(PhysicsPlugins::default().set(PhysicsInterpolationPlugin::interpolate_all()))
         .add_plugins(WeaponPlugin)
         .add_plugins(CustomHealthBarPlugin)
