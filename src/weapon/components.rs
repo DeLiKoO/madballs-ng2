@@ -11,7 +11,7 @@ pub(crate) struct Weapon {
     pub(crate) muzzle_pos: Vec3,
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Eq)]
 pub(crate) enum WeaponType {
     RocketLauncher,
     Gun,

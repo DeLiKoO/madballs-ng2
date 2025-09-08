@@ -1,6 +1,6 @@
 use avian3d::prelude::*;
 use bevy::prelude::*;
-use crate::{components::Damage, player::PLAYER_HEIGHT, systems::shoot_on_click::ShootEvent};
+use crate::{components::Damage, player::PLAYER_HEIGHT, systems::player_input::ShootEvent};
 use super::components::{Bullet, Weapon, WeaponBundle};
 use super::resources::{WeaponAssets, WeaponMaterials, WeaponMeshes};
 
