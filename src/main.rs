@@ -1,6 +1,6 @@
 //! Plays animations from a skinned glTF.
 
-use bevy::prelude::*;
+use bevy::{log::{Level, LogPlugin}, prelude::*};
 use avian3d::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
@@ -13,7 +13,11 @@ fn main() {
             color: Color::WHITE,
             brightness: 2000.,
         })
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(LogPlugin {
+            level: Level::INFO,
+            filter: "wgpu=error,bevy_render=info,bevy_ecs=trace".to_string(),
+            custom_layer: |_| None,
+        }))
         .add_plugins(FpsOverlayPlugin {
             config: FpsOverlayConfig {
                 text_config: TextFont {
