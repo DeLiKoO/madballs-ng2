@@ -39,6 +39,7 @@ fn main() {
         .add_systems(Update, crate::systems::draw_cursor::draw_cursor)
         .add_systems(Update, crate::systems::keyboard_control::move_kc_entity)
         .add_systems(Update, crate::systems::look_at_cursor::look_at_cursor)
+        .add_systems(Update, crate::systems::damage::handle_bullet_collision_aio)
         .run();
 }
 

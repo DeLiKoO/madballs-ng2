@@ -38,7 +38,7 @@ pub(crate) fn rocket_launcher(
                 // damage: 1.0,
                 mesh: Mesh3d(assets.meshes.cuboid.clone()),
                 material: MeshMaterial3d(assets.materials.default.clone()),
-                transform: Transform::from_xyz(0.0, PLAYER_HEIGHT / 2.0, 0.0).with_scale(Vec3 { x: 0.5, y: 0.5, z: 3.0 }),
+                transform: Transform::from_xyz(0.0, PLAYER_HEIGHT * 1.0 / 3.0, 0.0).with_scale(Vec3 { x: 0.5, y: 0.5, z: 3.0 }),
                 weapon: Weapon {  muzzle_pos: Vec3 { x: 0.0, y: 0.0, z: -0.75 } },
             }
 }
@@ -50,7 +50,7 @@ pub(crate) fn gun(
                 // damage: 1.0,
                 mesh: Mesh3d(assets.meshes.cuboid.clone()),
                 material: MeshMaterial3d(assets.materials.default.clone()),
-                transform: Transform::from_xyz(0.0, PLAYER_HEIGHT / 2.0, -1.0).with_scale(Vec3 { x: 0.25, y: 0.25, z: 0.75 }),
+                transform: Transform::from_xyz(0.0, PLAYER_HEIGHT * 1.0 / 3.0, -1.0).with_scale(Vec3 { x: 0.25, y: 0.25, z: 0.75 }),
                 weapon: Weapon {  muzzle_pos: Vec3 { x: 0.0, y: 0.0, z: -1.75 } },
             }
 }

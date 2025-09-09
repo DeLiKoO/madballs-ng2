@@ -9,17 +9,14 @@ pub(crate) fn despawn_out_of_world_bullets(
 ) {
     for ground_box in &ground_bounding_box_query {
 
-        let center = ground_box.center;
-        let mut half_size = ground_box.half_extents;
-        half_size.y += 30.0; // arbitrary
-        let ground_box_3d = Aabb3d::new(center, half_size);
-
-        for (entity, bounding_box, global_transform) in &bullets_aabbs_query {
+        const MAX_ALTITUDE: f32 = 30.0; // Maximum arbitrary altitude
+        let ground_box_3d = Aabb3d::new(ground_box.center, ground_box.half_extents + MAX_ALTITUDE); 
+        for (bullet_entity, bullet_box, bullet_global_transform) in &bullets_aabbs_query {
             // Check if entity is far outside the boundaries of the ground
-            let bounding_box_3d = Aabb3d::new(bounding_box.center + global_transform.translation_vec3a(), bounding_box.half_extents);
-            if !ground_box_3d.contains(&bounding_box_3d) {
+            let bullet_box_3d = Aabb3d::new(bullet_global_transform.transform_point(bullet_box.center.into()), bullet_box.half_extents);
+            if !ground_box_3d.contains(&bullet_box_3d) {
                 // here we should issue a command to despawn entity
-                commands.entity(entity).despawn();
+                commands.entity(bullet_entity).despawn();
             }
         }
     }
